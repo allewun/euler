@@ -11,7 +11,7 @@ def euler22
   end
 
   names = []
-  File.open('names.txt').each_line do |line|
+  File.open_euler('names.txt').each_line do |line|
     line_names = line.split(',')
     line_names.each { |n| names.push(n.gsub(/[^A-Z]/, '')) }
   end
