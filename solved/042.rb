@@ -16,7 +16,7 @@ def euler42
   end
 
   triangle_count = 0
-  File.open('words.txt').each_line do |line|
+  File.open_euler('words.txt').each_line do |line|
     line_words = line.split(',')
     line_words.each { |w| triangle_count += 1 if isTriangle(w.gsub(/[^A-Z]/, '')) }
   end

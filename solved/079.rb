@@ -4,7 +4,7 @@ def euler79
   # you determine the secret numeric passcode?
 
   inputs = []
-  File.open('keylog.txt').each_line do |line|
+  File.open_euler('keylog.txt').each_line do |line|
     inputs.push(line.chomp)
   end
   inputs.uniq!.sort!
