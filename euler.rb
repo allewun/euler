@@ -58,8 +58,8 @@ optparse = OptionParser.new do |opts|
     options[:s] = s.map { |x| x.to_i }
   end
   opts.on('-h', '--help', 'Show the help screen') do
-  	puts opts
-  	exit
+    puts opts
+    exit
   end
 end.parse!
 
