@@ -2,7 +2,48 @@
 
 require 'rubygems'
 require 'optparse'
-require './EulerClasses'
+require './helpers.rb'
+
+$SOLN_DIR = "solved/"
+$DATA_DIR = "data/"
+
+#=============================
+# Project Euler test harness
+#=============================
+
+class Euler
+  def initialize(num, skip)
+    @num    = num.to_i
+    @skip   = skip || []
+    @solved = Hash[Dir["#{$SOLN_DIR}*"].map { |a| [a.match(/[1-9]\d*/)[0].to_i, a] }].sort
+  end
+
+  def run_euler(num = @num)
+    load "#{$SOLN_DIR}#{num_to_file(num)}"
+    p send(num_to_def(num))
+  end
+
+  def run_all
+    @solved.reject { |k,v| @skip.include? k }.each do |k,v|
+      print num_to_file(k) + ': '
+      run_euler(k)
+    end
+  end
+
+  private
+
+  def num_to_file(num)
+    "#{num.to_s.rjust(3, '0')}.rb"
+  end
+
+  def num_to_def(num)
+    "euler#{num.to_s.rjust(3, '0')}"
+  end
+end
+
+#=============================
+# Parse command line options
+#=============================
 
 options = {}
 
@@ -21,6 +62,10 @@ optparse = OptionParser.new do |opts|
   	exit
   end
 end.parse!
+
+#=============================
+# Run
+#=============================
 
 euler = Euler.new(options[:n], options[:s])
 

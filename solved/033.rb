@@ -5,7 +5,7 @@
 # Discover all the fractions with an unorthodox cancelling method.
 #============================================================================
 
-def soln
+def euler033
   answers = []
   11.upto(99) do |den|
     10.upto(den - 1) do |num|
@@ -36,10 +36,3 @@ def soln
   # multiply all fractions together
   prod = answers.reduce(1) { |a, i| a * (i[0]/i[1]) }
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run

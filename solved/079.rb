@@ -6,7 +6,7 @@
 # you determine the secret numeric passcode?
 #============================================================================
 
-def soln
+def euler079
   inputs = []
   File.open_euler('keylog.txt').each_line do |line|
     inputs.push(line.chomp)
@@ -28,10 +28,3 @@ def soln
 
   answer = proceeded_freq.reduce("") { |a, n| a << n[0] }
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run

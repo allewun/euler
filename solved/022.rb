@@ -5,7 +5,7 @@
 # What is the total of all the name scores in the file?
 #============================================================================
 
-def soln
+def euler022
   def find_score(word)
     score = 0
     word.split('').each { |l| score += l[0].ord - 64 } # 64 is the offset to
@@ -28,10 +28,3 @@ def soln
   end
   score
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run

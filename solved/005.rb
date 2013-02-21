@@ -6,7 +6,7 @@
 # evenly divisible by all of the numbers from 1 to 20?
 #============================================================================
 
-def soln
+def euler005
   nums = (11..20)
   target = 20
 
@@ -27,10 +27,3 @@ def soln
     end
   end
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run

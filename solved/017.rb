@@ -6,7 +6,7 @@
 # were written out in words, how many letters would be used?
 #============================================================================
 
-def soln
+def euler017
   def split_number(num)
     num = num.to_s.rjust(4, '0')
     {
@@ -60,10 +60,3 @@ def soln
 
   sum
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run

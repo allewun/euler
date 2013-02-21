@@ -6,13 +6,6 @@
 # What is the largest prime factor of the number 600851475143?
 #============================================================================
 
-def soln
+def euler003
 	600851475143.prime_factors.last
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run

@@ -1,10 +1,10 @@
 # Project Euler
 
-I'm using Project Euler to help myself learn Ruby.
+I'm using [Project Euler](http://projecteuler.net/) to help myself learn Ruby.
 
 Most, if not all, of the earlier-written functions are not written in good, idiomatic Ruby, and my solutions are pretty inefficient! I'll get around to rewriting these someday...
 
-<img src="https://raw.github.com/allewun/euler/master/euler.png" />
+![Screenshot of euler.rb running in Terminal](https://raw.github.com/allewun/euler/master/euler.png)
 
 ## Usage
 

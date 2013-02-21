@@ -5,7 +5,7 @@
 # What is the first term in the Fibonacci sequence to contain 1000 digits?
 #============================================================================
 
-def soln
+def euler025
   fib = [1, 1]
   index = 2
   while fib[1].to_s.length < 1000
@@ -14,10 +14,3 @@ def soln
   end
   index
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run

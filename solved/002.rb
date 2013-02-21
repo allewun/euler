@@ -7,7 +7,7 @@
 # million, find the sum of the even-valued terms.
 #============================================================================
 
-def soln
+def euler002
   sum = 0
   fib = [1, 1]
   while fib[1] < 4e6
@@ -16,10 +16,3 @@ def soln
   end
   sum
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run

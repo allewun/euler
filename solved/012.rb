@@ -1,12 +1,12 @@
 #============================================================================
-# euler008
+# euler012
 # 6/25/12 - O(N^2)... too slow, need to optimize
 #
 # What is the value of the first triangle number
 # to have over five hundred divisors?
 #============================================================================
 
-def soln
+def euler012
   def divisor_count(n)
     return 0 if n < 500
 
@@ -25,10 +25,3 @@ def soln
 
   current_triangle_num
 end
-
-#=====================================
-# Run
-#=====================================
-
-es = EulerSolution.new({:soln => soln})
-es.run
