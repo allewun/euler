@@ -1,8 +1,12 @@
-def euler79
-  # 6/25/12 - this one was fun
-  # By analysing a user's login attempts, can
-  # you determine the secret numeric passcode?
+#============================================================================
+# euler079
+# 6/25/12 - this one was fun
+#
+# By analysing a user's login attempts, can
+# you determine the secret numeric passcode?
+#============================================================================
 
+def soln
   inputs = []
   File.open_euler('keylog.txt').each_line do |line|
     inputs.push(line.chomp)
@@ -24,3 +28,10 @@ def euler79
 
   answer = proceeded_freq.reduce("") { |a, n| a << n[0] }
 end
+
+#=====================================
+# Run
+#=====================================
+
+es = EulerSolution.new({:soln => soln})
+es.run

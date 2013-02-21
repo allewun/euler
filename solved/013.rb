@@ -1,8 +1,12 @@
-def euler13
-  # 6/22/12
-  # Work out the first ten digits of the sum of the
-  # following one-hundred 50-digit numbers.
+#============================================================================
+# euler013
+# 6/22/12
+#
+# Work out the first ten digits of the sum of the
+# following one-hundred 50-digit numbers.
+#============================================================================
 
+def soln
   numbers = <<-eos
     37107287533902102798797998220837590246510135740250
     46376937677490009712648124896970078050417018260538
@@ -108,3 +112,11 @@ def euler13
 
   answer = numbers.lines.each.map { |x| x.to_i }.reduce(:+).to_s[0..9]
 end
+
+#=====================================
+# Run
+#=====================================
+
+es = EulerSolution.new({:soln => soln})
+es.run
+

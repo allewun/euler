@@ -1,8 +1,18 @@
-
-# 2/16/13 - rewrite
+#============================================================================
+# euler003
+# 2/16/13
+#
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number 600851475143?
+#============================================================================
 
-def euler3(num = 600851475143)
-  num.prime_factors.last
+def soln
+	600851475143.prime_factors.last
 end
+
+#=====================================
+# Run
+#=====================================
+
+es = EulerSolution.new({:soln => soln})
+es.run

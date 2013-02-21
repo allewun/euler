@@ -1,7 +1,11 @@
-def euler22
-  # 6/22/12
-  # What is the total of all the name scores in the file?
+#============================================================================
+# euler022
+# 6/22/12
+#
+# What is the total of all the name scores in the file?
+#============================================================================
 
+def soln
   def find_score(word)
     score = 0
     word.split('').each { |l| score += l[0].ord - 64 } # 64 is the offset to
@@ -24,3 +28,10 @@ def euler22
   end
   score
 end
+
+#=====================================
+# Run
+#=====================================
+
+es = EulerSolution.new({:soln => soln})
+es.run

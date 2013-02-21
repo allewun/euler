@@ -1,3 +1,9 @@
+class File
+  def File.open_euler(file)
+    open "#{$DATA_DIR}#{file}"
+  end
+end
+
 class Fixnum
   # prime number test
   def is_prime

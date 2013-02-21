@@ -1,8 +1,12 @@
-def euler8
-  # 6/22/12
-  # Find the greatest product of five consecutive
-  # digits in the 1000-digit number.
+#============================================================================
+# euler008
+# 6/22/12
+#
+# Find the greatest product of five consecutive
+# digits in the 1000-digit number.
+#============================================================================
 
+def soln
   big_num = <<-eos
     73167176531330624919225119674426574742355349194934
     96983520312774506326239578318016984801869478851843
@@ -26,11 +30,6 @@ def euler8
     71636269561882670428252483600823257530420752963450
   eos
 
-  # cut-out 5 digit numbers that straddle a zero
-  # to reduce computation later
-  #4.times { big_num.gsub!(/[1-9]0/, '0').gsub!(/0[1-9]/, '0') }
-  #big_num.gsub!(/0/, '')
-
   current_max = 0
 
   until big_num.length == 5 do
@@ -41,3 +40,10 @@ def euler8
 
   current_max
 end
+
+#=====================================
+# Run
+#=====================================
+
+es = EulerSolution.new({:soln => soln})
+es.run

@@ -1,7 +1,11 @@
-def euler42
-  # 6/22/12
-  # How many "triangle" words?
+#============================================================================
+# euler042
+# 6/22/12
+#
+# How many "triangle" words?
+#============================================================================
 
+def soln
   def isTriangle(word)
     word_val = 0
     word_val = word.split('').each.reduce(0) { |a, c| a + (c[0].ord - 64) }
@@ -23,3 +27,10 @@ def euler42
 
   triangle_count
 end
+
+#=====================================
+# Run
+#=====================================
+
+es = EulerSolution.new({:soln => soln})
+es.run

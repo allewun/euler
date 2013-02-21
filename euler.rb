@@ -1,64 +1,31 @@
-# Project Euler
+#!/usr/bin/env ruby
 
-require './helpers/File'
-require './helpers/Fixnum'
+require 'rubygems'
+require 'optparse'
+require './EulerClasses'
 
-CONFIG = {}
-CONFIG[:data]   = 'data/'
-CONFIG[:solved] = 'solved/'
+options = {}
 
-
-
-# run a particular solution
-def run_euler(num, file, arg)
-  load file
-  if (arg.nil?)
-    p send("euler#{num}")
-  else
-    p send("euler#{num}", arg)
+optparse = OptionParser.new do |opts|
+  opts.on('-a', '--all', 'Run all euler problems') do
+    options[:a] = true
   end
-end
-
-# hash of solved problems
-solved = Hash[Dir["#{CONFIG[:solved]}*"].map { |a| [a.match(/[1-9]\d*/)[0].to_i, a] }]
-
-
-
-#################
-#  Begin prompt
-#################
-puts
-puts "*********************************************"
-puts "                Project Euler                "
-puts "*********************************************"
-puts
-
-# list of problems to skip
-skip = []
-
-while true
-  print "> "
-  cmd = gets.chomp
-
-  # run a solution
-  if solved.has_key?(cmd.split[0].to_i)
-    arg = (cmd.split.size == 2) ? cmd.split[1].to_i : nil
-    run_euler(cmd.to_i, solved[cmd.to_i], arg)
-
-  # add solution to skip
-  elsif cmd[0] == 's'
-    skip.push cmd.match(/\d+/)[0].to_i
-
-  # clear skip list
-  elsif cmd[0] == 'c'
-    skip = []
-
-  # run all solutions, but skip specified ones
-  else
-    solved.reject { |k,v| skip.include? k }.each do |k,v|
-      puts "> #{k}"
-      run_euler(k, solved[k])
-      puts
-    end
+  opts.on('-n', '--number N', 'Run euler problem N') do |o|
+    options[:n] = o
   end
+  opts.on('-s', '--skip A,B,C...', Array, 'Skip euler problems A,B,C...') do |s|
+    options[:s] = s.map { |x| x.to_i }
+  end
+  opts.on('-h', '--help', 'Show the help screen') do
+  	puts opts
+  	exit
+  end
+end.parse!
+
+euler = Euler.new(options[:n], options[:s])
+
+if !options[:a].nil?
+  euler.run_all
+elsif !options[:n].nil?
+  euler.run_euler
 end

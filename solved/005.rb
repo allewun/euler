@@ -1,8 +1,12 @@
-def euler5
-  # 6/20/12
-  # What is the smallest positive number that is
-  # evenly divisible by all of the numbers from 1 to 20?
+#============================================================================
+# euler005
+# 6/20/12
+#
+# What is the smallest positive number that is
+# evenly divisible by all of the numbers from 1 to 20?
+#============================================================================
 
+def soln
   nums = (11..20)
   target = 20
 
@@ -23,3 +27,10 @@ def euler5
     end
   end
 end
+
+#=====================================
+# Run
+#=====================================
+
+es = EulerSolution.new({:soln => soln})
+es.run

@@ -1,8 +1,12 @@
-def euler17
-  # 6/22/12
-  # If all the numbers from 1 to 1000 (one thousand) inclusive
-  # were written out in words, how many letters would be used?
+#============================================================================
+# euler017
+# 6/22/12
+#
+# If all the numbers from 1 to 1000 (one thousand) inclusive
+# were written out in words, how many letters would be used?
+#============================================================================
 
+def soln
   def split_number(num)
     num = num.to_s.rjust(4, '0')
     {
@@ -56,3 +60,10 @@ def euler17
 
   sum
 end
+
+#=====================================
+# Run
+#=====================================
+
+es = EulerSolution.new({:soln => soln})
+es.run
