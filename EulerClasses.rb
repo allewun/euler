@@ -15,7 +15,6 @@ class Euler
   end
 
   def run_all
-    p "skipping: #{@skip}"
     @solved.reject { |k,v| @skip.include? k }.each do |k,v|
       print num_to_file(k) + ': '
       run_euler(k)
