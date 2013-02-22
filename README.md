@@ -13,3 +13,7 @@ Most, if not all, of the earlier-written functions are not written in good, idio
         -n, --number N                   Run euler problem N
         -s, --skip A,B,C...              Skip euler problems A,B,C...
         -h, --help                       Show the help screen
+
+## Progress
+
+![](http://projecteuler.net/profile/allewun.png)
