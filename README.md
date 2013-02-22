@@ -16,4 +16,4 @@ Most, if not all, of the earlier-written functions are not written in good, idio
 
 ## Progress
 
-<img src="http://projecteuler.net/profile/allewun.png" />
+![](https://projecteuler.net/profile/allewun.png)
