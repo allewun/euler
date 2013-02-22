@@ -42,3 +42,36 @@ class Fixnum
     end
   end
 end
+
+def each_prime
+  # block parameters: |prime, index|
+
+  index  = 1
+  prime  = 2
+  k      = 1  # all primes are of the form 6*k ± 1
+
+  # first couple of primes don't follow 6*k ± 1 rule
+  if index < 3
+    if index == 1; yield 2,1; index += 1; end;
+    if index == 2; yield 3,2; index += 1; end;
+  end
+
+  # use 6*k ± 1 rule to cut down on search time
+  loop do
+    candidates = [6*k - 1, 6*k + 1]
+
+    if candidates[0].is_prime?
+      prime = candidates[0]
+      index += 1
+      yield prime, index
+    end
+
+    if candidates[1].is_prime?
+      prime = candidates[1]
+      index += 1
+      yield prime, index
+    end
+
+    k += 1
+  end
+end
