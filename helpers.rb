@@ -6,7 +6,7 @@ end
 
 class Fixnum
   # prime number test
-  def is_prime
+  def is_prime?
     if self <= 3
       return true
     # trick from wikipedia
@@ -23,7 +23,7 @@ class Fixnum
 
   # returns all the prime factors of a number
   def prime_factors
-    if is_prime
+    if is_prime?
       [self]
     else
       pair = factorize
