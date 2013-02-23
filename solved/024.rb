@@ -6,19 +6,10 @@
 # 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 #============================================================================
 
-require 'set'
-
 def euler024
   limit = (1..10).reduce(:*)
-  num = "1234567890"
+  num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-  s = Set.new
-  until s.size == limit do
-    p s.size
-    s.add num
-    num = num.split("").shuffle.join
-  end
-
-  s.to_a.sort[1000000 - 1]
+  num.permutation.map { |x| x.join.to_i }.sort[1000000 - 1]
 
 end
