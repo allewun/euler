@@ -46,6 +46,18 @@ class Fixnum
   def divisible?(n)
     self % n == 0
   end
+
+  # returns if number is "palindromic"
+  def palindrome?
+    str = self.to_s
+    len = str.size
+
+    if len.odd?
+      str[0, len/2] == str[len/2 + 1, len/2].reverse
+    else
+      str[0, len/2] == str[len/2, len/2].reverse
+    end
+  end
 end
 
 def each_prime
