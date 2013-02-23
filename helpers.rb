@@ -41,6 +41,11 @@ class Fixnum
       end
     end
   end
+
+  # returns if number is divisible by a number
+  def divisible?(n)
+    self % n == 0
+  end
 end
 
 def each_prime
