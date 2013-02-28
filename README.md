@@ -8,10 +8,10 @@ Most, if not all, of the earlier-written functions are not written in good, idio
 
 ## Usage
 
-    euler [options]
+    ./euler.rb [options]
         -a, --all                  Run all euler problems
         -n, --number N             Run euler problem N
-        -s, --skip A,B,C...        Skip euler problems A,B,C...
+        -s, --skip A,B,C...        Skip euler problems A,B,C... (use with --all)
         -l, --list                 List attempted solutions
         -h, --help                 Show the help screen
 

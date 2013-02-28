@@ -88,7 +88,7 @@ optparse = OptionParser.new do |opts|
   opts.on('-n', '--number N', 'Run euler problem N') do |o|
     options[:n] = o
   end
-  opts.on('-s', '--skip A,B,C...', Array, 'Skip euler problems A,B,C...') do |s|
+  opts.on('-s', '--skip A,B,C...', Array, 'Skip euler problems A,B,C... (use with --all)') do |s|
     options[:s] = s.map { |x| x.to_i }
   end
   opts.on('-l', '--list', 'List attempted solutions') do |l|
