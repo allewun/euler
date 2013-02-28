@@ -8,11 +8,12 @@ Most, if not all, of the earlier-written functions are not written in good, idio
 
 ## Usage
 
-    euler.rb [options]
-        -a, --all                        Run all euler problems
-        -n, --number N                   Run euler problem N
-        -s, --skip A,B,C...              Skip euler problems A,B,C...
-        -h, --help                       Show the help screen
+    euler [options]
+        -a, --all                  Run all euler problems
+        -n, --number N             Run euler problem N
+        -s, --skip A,B,C...        Skip euler problems A,B,C...
+        -l, --list                 List attempted solutions
+        -h, --help                 Show the help screen
 
 ## Progress
 
