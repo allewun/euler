@@ -58,6 +58,16 @@ class Fixnum
       str[0, len/2] == str[len/2, len/2].reverse
     end
   end
+
+  # prepend with zeros
+  def zero_pad(n)
+    self.to_s.rjust(n, '0')
+  end
+
+  # prepend with spaces
+  def space_pad(n)
+    self.to_s.rjust(n, ' ')
+  end
 end
 
 def each_prime

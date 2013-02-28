@@ -30,14 +30,48 @@ class Euler
     end
   end
 
+  def list
+    nums = @solved.to_a.map { |k,v| k }
+    table = "\n"
+
+    (0..30).each do |x|
+      (1..10).each do |y|
+        cur = 10*x + y
+
+        # skip 000
+        if cur == 0
+          next
+        end
+
+        # stop printing after the last row of attempted solutions
+        if x > (nums.max - 1) / 10
+          break
+        end
+
+        # print table entry
+        if nums.include? cur
+          table << "#{cur.space_pad(3)} "
+        else
+          table << "  . "
+        end
+      end
+
+      # new row
+      table << "\n"
+    end
+
+    print table.rstrip
+    print "\n\n  Attempted #{nums.size} problems.\n\n"
+  end
+
   private
 
   def num_to_file(num)
-    "#{num.to_s.rjust(3, '0')}.rb"
+    "#{num.zero_pad(3)}.rb"
   end
 
   def num_to_def(num)
-    "euler#{num.to_s.rjust(3, '0')}"
+    "euler#{num.zero_pad(3)}"
   end
 end
 
@@ -57,6 +91,9 @@ optparse = OptionParser.new do |opts|
   opts.on('-s', '--skip A,B,C...', Array, 'Skip euler problems A,B,C...') do |s|
     options[:s] = s.map { |x| x.to_i }
   end
+  opts.on('-l', '--list', 'List attempted solutions') do |l|
+    options[:l] = true
+  end
   opts.on('-h', '--help', 'Show the help screen') do
     puts opts
     exit
@@ -73,4 +110,6 @@ if !options[:a].nil?
   euler.run_all
 elsif !options[:n].nil?
   euler.run_euler
+elsif !options[:l].nil?
+  euler.list
 end
