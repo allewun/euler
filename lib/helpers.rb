@@ -1,8 +1,17 @@
+#============================================================================
+# File
+#============================================================================
+
 class File
   def File.open_euler(file)
     open "#{$DATA_DIR}#{file}"
   end
 end
+
+
+#============================================================================
+# Fixnum
+#============================================================================
 
 class Fixnum
   # prime number test
@@ -69,6 +78,11 @@ class Fixnum
     end
   end
 
+  # returns if number is perfect square
+  def perfect_square?
+    self == Math.sqrt(self).to_i ** 2
+  end
+
   # prepend with zeros
   def zero_pad(n)
     self.to_s.rjust(n, '0')
@@ -79,6 +93,11 @@ class Fixnum
     self.to_s.rjust(n, ' ')
   end
 end
+
+
+#============================================================================
+# Iterators
+#============================================================================
 
 # prime number iterator
 #   |prime, index|
