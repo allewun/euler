@@ -34,10 +34,10 @@ def euler058
     diags += 4
     size += 2
 
-    primes += 1 if (size ** 2).is_prime?
-    primes += 1 if (size ** 2 - (size - 1)).is_prime?
-    primes += 1 if (size ** 2 - 2*(size - 1)).is_prime?
-    primes += 1 if (size ** 2 - 3*(size - 1)).is_prime?
+    primes += 1 if (size ** 2).prime?
+    primes += 1 if (size ** 2 - (size - 1)).prime?
+    primes += 1 if (size ** 2 - 2*(size - 1)).prime?
+    primes += 1 if (size ** 2 - 3*(size - 1)).prime?
 
     ratio = primes.to_f / diags
   end

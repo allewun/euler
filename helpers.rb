@@ -6,7 +6,7 @@ end
 
 class Fixnum
   # prime number test
-  def is_prime?
+  def prime?
     if self <= 3
       return true
     # trick from wikipedia
@@ -23,7 +23,7 @@ class Fixnum
 
   # returns all the prime factors of a number
   def prime_factors
-    if is_prime?
+    if prime?
       [self]
     else
       pair = factorize
@@ -87,13 +87,13 @@ def each_prime
   loop do
     candidates = [6*k - 1, 6*k + 1]
 
-    if candidates[0].is_prime?
+    if candidates[0].prime?
       prime = candidates[0]
       index += 1
       yield prime, index
     end
 
-    if candidates[1].is_prime?
+    if candidates[1].prime?
       prime = candidates[1]
       index += 1
       yield prime, index
