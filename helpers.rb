@@ -70,12 +70,12 @@ class Fixnum
   end
 end
 
+# prime number iterator
+#   |prime, index|
 def each_prime
-  # block parameters: |prime, index|
-
-  index  = 1
-  prime  = 2
-  k      = 1  # all primes are of the form 6*k ± 1
+  index = 1
+  prime = 2
+  k     = 1  # all primes are of the form 6*k ± 1
 
   # first couple of primes don't follow 6*k ± 1 rule
   if index < 3
