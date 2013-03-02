@@ -31,6 +31,16 @@ class Fixnum
     end
   end
 
+  # returns all factors of a number
+  def factors
+    all_factors = []
+    (1..Math.sqrt(self).to_i).each do |x|
+      all_factors.push(x, self/x) if (self % x == 0)
+    end
+
+    all_factors.sort.uniq
+  end
+
   # returns one factorization of a number
   def factorize
     if even?
@@ -100,5 +110,19 @@ def each_prime
     end
 
     k += 1
+  end
+end
+
+# triangle number iterator
+#   |n, index|
+def each_triangle_number
+  n     = 1
+  index = 1
+
+  loop do
+    yield n, index
+
+    index += 1
+    n += index
   end
 end
