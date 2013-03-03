@@ -110,5 +110,5 @@ def euler013
     53503534226472524250874054075591789781264330331690
   eos
 
-  answer = numbers.lines.each.map { |x| x.to_i }.reduce(:+).to_s[0..9]
+  answer = numbers.lines.each.map { |x| x.to_i }.reduce(:+).to_s[0..9].to_i
 end

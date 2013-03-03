@@ -35,4 +35,6 @@ def euler033
 
   # multiply all fractions together
   prod = answers.reduce(1) { |a, i| a * (i[0]/i[1]) }
+
+  denominator = (1/prod).round.to_i
 end

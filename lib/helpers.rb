@@ -109,7 +109,7 @@ def each_prime
   # first couple of primes don't follow 6*k ± 1 rule
   if index < 3
     if index == 1; yield 2,1; index += 1; end;
-    if index == 2; yield 3,2; index += 1; end;
+    if index == 2; yield 3,2; end;
   end
 
   # use 6*k ± 1 rule to cut down on search time

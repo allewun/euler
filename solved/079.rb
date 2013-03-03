@@ -26,5 +26,5 @@ def euler079
   proceeded_freq.map { |k,v| v = v.uniq! }
   proceeded_freq = proceeded_freq.sort_by { |k,v| v.length }.reverse
 
-  answer = proceeded_freq.reduce("") { |a, n| a << n[0] }
+  answer = proceeded_freq.reduce("") { |a, n| a << n[0] }.to_i
 end
