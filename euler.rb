@@ -7,6 +7,7 @@ require './lib/helpers.rb'
 
 $SOLN_DIR = "solved/"
 $DATA_DIR = "data/"
+$ANS_FILE = "test/answers.txt"
 
 #============================================================================
 # Parse command line options
@@ -27,6 +28,9 @@ optparse = OptionParser.new do |opts|
   opts.on('-l', '--list', 'List attempted solutions') do |l|
     options[:l] = true
   end
+  opts.on('-t', '--test', 'Test euler problem(s) against known solution(s)') do |t|
+    options[:t] = true
+  end
   opts.on('-h', '--help', 'Show the help screen') do
     puts opts
     exit
@@ -39,7 +43,13 @@ end.parse!
 
 euler = Euler.new(options[:n], options[:s])
 
-if !options[:a].nil?
+if !options[:t].nil?
+  if !options[:a].nil?
+    euler.test_all
+  elsif !options[:n].nil?
+    euler.test_euler
+  end
+elsif !options[:a].nil?
   euler.run_all
 elsif !options[:n].nil?
   euler.run_euler

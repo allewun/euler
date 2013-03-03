@@ -1,23 +1,61 @@
+# encoding: utf-8
+
 #============================================================================
 # Project Euler test harness
 #============================================================================
 
 class Euler
   def initialize(num, skip)
-    @num    = num.to_i
-    @skip   = skip || []
-    @solved = Hash[Dir["#{$SOLN_DIR}*"].map { |a| [a.match(/[1-9]\d*/)[0].to_i, a] }].sort
+    @num     = num.to_i
+    @skip    = skip || []
+    @solved  =
+      begin
+        Hash[Dir["#{$SOLN_DIR}*"].map do |file|
+          [file.match(/\d{3}/)[0].to_i, file]
+        end]
+      end
+    @answers =
+      begin
+        Hash[File.open($ANS_FILE).each_line.map do |line|
+          key, value = line.split(":")
+          [key.to_i, value.to_i]
+        end]
+      end
   end
 
-  def run_euler(num = @num)
+  def run_euler(num = @num, output = true)
     load "#{$SOLN_DIR}#{num_to_file(num)}"
-    p send(num_to_def(num))
+    result = send(num_to_def(num))
+
+    if output
+      p result
+    else
+      result
+    end
   end
 
   def run_all
     @solved.reject { |k,v| @skip.include? k }.each do |k,v|
       print num_to_file(k) + ': '
       run_euler(k)
+    end
+  end
+
+  def test_euler(num = @num)
+    computed = run_euler(num, false)
+    actual = @answers[num]
+
+    if (computed == actual)
+      puts colorize("✓", GREEN) + "  (#{computed} == #{actual})"
+    else
+      puts colorize("✗", RED) + "  (#{computed} != #{actual})"
+    end
+  end
+
+  def test_all
+    @solved.reject { |k,v| @skip.include? k }.each do |k,v|
+      print num_to_file(k) + ': '
+      test_euler(k)
     end
   end
 
@@ -48,7 +86,8 @@ class Euler
     end
 
     print table.rstrip
-    print "\n\n  Attempted #{nums.size} problems.\n\n"
+    print "\n\n  Solved #{@answers.size} problems.\n"
+    print "  Attempted #{nums.size} problems.\n\n"
   end
 
   private
