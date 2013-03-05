@@ -35,12 +35,12 @@ class Euler
   end
 
   def run_all
-    print "\nRunning all solutions...\n"
-    print "(skip: #{skip_list})\n" if !@skip.empty?
+    print "\n Running all solutions...\n"
+    print " (skip: #{skip_list})\n" if !@skip.empty?
     print "\n"
 
     @solved.reject { |k,v| @skip.include? k }.each do |k,v|
-      print num_to_file(k) + ': '
+      print " #{num_to_file(k)} : "
       run_euler(k)
     end
 
@@ -59,12 +59,12 @@ class Euler
   end
 
   def test_all
-    print "\nTesting all solutions...\n"
-    print "(skip: #{skip_list})\n" if !@skip.empty?
+    print "\n Testing all solutions...\n"
+    print " (skip: #{skip_list})\n" if !@skip.empty?
     print "\n"
 
     @solved.reject { |k,v| @skip.include? k }.each do |k,v|
-      print num_to_file(k) + ': '
+      print " #{num_to_file(k)} : "
       test_euler(k)
     end
 
@@ -98,7 +98,8 @@ class Euler
     end
 
     print table.rstrip
-    print "\n\n  Solved #{@answers.size} problems.\n"
+    print "\n\n"
+    print "  Solved #{@answers.size} problems.\n"
     print "  Attempted #{nums.size} problems.\n\n"
   end
 
