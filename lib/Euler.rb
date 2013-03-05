@@ -35,10 +35,16 @@ class Euler
   end
 
   def run_all
+    print "\nRunning all solutions...\n"
+    print "(skip: #{skip_list})\n" if !@skip.empty?
+    print "\n"
+
     @solved.reject { |k,v| @skip.include? k }.each do |k,v|
       print num_to_file(k) + ': '
       run_euler(k)
     end
+
+    print "\n"
   end
 
   def test_euler(num = @num)
@@ -53,10 +59,16 @@ class Euler
   end
 
   def test_all
+    print "\nTesting all solutions...\n"
+    print "(skip: #{skip_list})\n" if !@skip.empty?
+    print "\n"
+
     @solved.reject { |k,v| @skip.include? k }.each do |k,v|
       print num_to_file(k) + ': '
       test_euler(k)
     end
+
+    print "\n"
   end
 
   def list
@@ -98,5 +110,9 @@ class Euler
 
   def num_to_def(num)
     "euler#{num.zero_pad(3)}"
+  end
+
+  def skip_list
+    @skip.sort.join(", ")
   end
 end
